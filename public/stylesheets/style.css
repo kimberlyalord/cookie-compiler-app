@@ -1,8 +1,43 @@
 body {
-  padding: 50px;
+  width: 100%;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #CCFFD2;
+  display: grid;
+  grid-template-rows: 150px 100px 1fr 1fr;
+  grid-template-columns: 1fr;
+  "main nav"
+  "secondary nav"
+  "content";
 }
 
 a {
-  color: #00B7FF;
+  font-size: 20px;
+  color: black;
+  background-color: #CCFFD2;
+  border: black solid 2px;
+  text-decoration: none;
+  padding: 4px 8px;
+  text-align: center;
+  
+}
+
+.main-nav {
+  background-color: #54A372;
+  border: black solid 2px;
+  grid-area: main nav;
+}
+
+.secondary-nav {
+  grid-area: secondary nav;
+}
+
+h1 {
+  font-family: 'Cookie', cursive;
+  font-size: 100px;
+  display: grid;
+  margin: 0 auto;
+  padding: 0px 15px;
+  grid-area: main nav;
+  justify-items: left;
 }
