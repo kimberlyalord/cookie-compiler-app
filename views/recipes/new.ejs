@@ -1,5 +1,34 @@
 <%- include('../partials/header') %>
 
-<h1>test new view</h1>
+<form id="new-form" action="/recipes" method="POST">
+    <label>Recipe Title:</label>
+    <input type="text" name="recipeName">
+    <label>Picture:</label>
+    <input type="text" name="image">
+    <label>Ingredients:</label>
+    <input type="text" name="ingredients">
+    <label>Directions:</label>
+    <input type="text" name="directions">
+    <label>Select up to three Attributes:</label>
+    <select name="attribute">
+        <option value="none"></option>
+        <option value="Vegan">Vegan</option>
+        <option value="Gluten-Free">Gluten-Free</option>
+        <option value="Non-Dairy">Non-Dairy</option>
+    </select><br>
+    <select name="attribute">
+        <option value="none"></option>
+        <option value="Vegan">Vegan</option>
+        <option value="Gluten-Free">Gluten-Free</option>
+        <option value="Non-Dairy">Non-Dairy</option>
+    </select><br>
+    <select name="attribute">
+        <option value="none"></option>
+        <option value="Vegan">Vegan</option>
+        <option value="Gluten-Free">Gluten-Free</option>
+        <option value="Non-Dairy">Non-Dairy</option>
+    </select>
+    <input type="submit" value="Add Recipe">
+</form>
 
 <%- include('../partials/footer') %>
