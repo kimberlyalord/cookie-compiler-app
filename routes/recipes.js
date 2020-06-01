@@ -4,6 +4,7 @@ const recipesCtrl = require('../controllers/recipes');
 
 router.get('/', recipesCtrl.index);
 router.get('/new', isLoggedIn, recipesCtrl.new);
+router.get('/:id', isLoggedIn, recipesCtrl.show);
 
 // custom middleware for routes that require a logged in user
 function isLoggedIn(req, res, next) {

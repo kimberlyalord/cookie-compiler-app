@@ -6,7 +6,10 @@ const recipeSchema = new Schema({
     image: String,
     ingredients: String,
     directions: String,
-    // attribute: [attibuteSchema],
+    attribute: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Attribute'
+    }],
     // reviews: [reviewSchema]
 });
 
