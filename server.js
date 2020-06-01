@@ -10,9 +10,9 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 const recipesRouter = require('./routes/recipes');
-var usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
 
 var app = express();
 
