@@ -3,16 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
-var passport = require('passport');
+const session = require('express-session');
+const passport = require('passport');
+const methodOverride = require('method-override');
 
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
-const recipesRouter = require('./routes/recipes');
 const usersRouter = require('./routes/users');
+const recipesRouter = require('./routes/recipes');
 
 var app = express();
 
@@ -33,9 +34,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use('/', indexRouter);
+app.use('/', usersRouter);
 app.use('/recipes', recipesRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

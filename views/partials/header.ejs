@@ -11,8 +11,11 @@
 <body>
     <nav class="main-nav">
         <h1>Cookie Compiler</h1>
+            <% if (user) { %>
             <a href="/logout">Log Out</a>
+            <% } else { %>
             <a href="/auth/google">Login with Google</a>
+            <% } %>
     </nav>
     <nav class="secondary-nav">
         <a href="/about">About Cookie Compiler</a>

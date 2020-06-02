@@ -1,3 +1,22 @@
 <%- include('../partials/header') %>
 
+<table id="all-recipes">
+    <thead>
+      <tr>
+        <th>Recipe Name:</th>
+        <th>Ingredients:</th>
+        <th>Directions:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% recipes.forEach(function(r) { %>
+        <tr>
+          <td><%= r.recipeName %></td>
+          <td><%= r.ingredients %></td>
+          <td><a href="/recipes/<%= r._id %>">See Full Recipe</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+
 <%- include('../partials/footer') %>
