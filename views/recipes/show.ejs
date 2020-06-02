@@ -2,14 +2,14 @@
 
 <section id="show-page">
     <img src="<%= recipe.image %>" alt="cookie picture"><br>
-    <div>Recipe Name:</div>
+    <div class="header">Recipe Name:</div>
     <div><%= recipe.recipeName %></div>
-    <div>Ingredients:</div>
+    <div class="header">Ingredients:</div>
     <div><%= recipe.ingredients %></div>
-    <div>Directions:</div>
+    <div class="header">Directions:</div>
     <div><%= recipe.directions %></div>
         <% if (recipe.attributes) { %>
-        <div>Attributes:</div>
+        <div class="header">Attributes:</div>
         <div><%= recipe.attributes.attributeName %></div>
         <% } %>
 </section>
