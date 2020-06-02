@@ -48,7 +48,8 @@ function create(req, res) {
 
 function edit(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
-        res.render(`recipes/edit`, {title: 'Edit Recipe', recipe});
+        // if (!recipe.user.equals(req.user._id)) return res.redirect('/recipes');
+        res.render('recipes/edit', {title: 'Edit Recipe', recipe});
     });
 }
 
@@ -59,9 +60,7 @@ function update(req, res) {
 }
 
 function deleteRecipe(req, res) {
-    console.log(req.params);
     Recipe.findByIdAndRemove(req.params.id, function(err, recipe) {
-    console.log(err);
         res.redirect('/recipes');
     });
 }
