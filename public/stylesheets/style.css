@@ -20,7 +20,11 @@ a {
   text-decoration: none;
   padding: 4px 8px;
   text-align: center;
-  
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 .main-nav {
