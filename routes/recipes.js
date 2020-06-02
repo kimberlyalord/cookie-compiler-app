@@ -6,6 +6,8 @@ router.get('/', recipesCtrl.index);
 router.get('/new', isLoggedIn, recipesCtrl.new);
 router.post('/', isLoggedIn, recipesCtrl.create);
 router.get('/:id', isLoggedIn, recipesCtrl.show);
+router.get('/:id/edit', isLoggedIn, recipesCtrl.edit);
+router.put('/:id', isLoggedIn, recipesCtrl.update);
 
 // custom middleware for routes that require a logged in user
 function isLoggedIn(req, res, next) {

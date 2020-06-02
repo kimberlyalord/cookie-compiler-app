@@ -5,7 +5,9 @@ module.exports = {
     index,
     show,
     new: newRecipe,
-    create
+    create,
+    edit,
+    update
 };
 
 function index(req, res) {
@@ -18,8 +20,6 @@ function show(req, res) {
     Recipe.findById(req.params.id)
     .populate('attributes')
     .exec(function(err, recipe) {
-        console.log(err);
-        console.log(recipe);
             res.render('recipes/show', {
                 title: 'Recipe Detail',
                 recipe
@@ -33,7 +33,6 @@ function newRecipe(req, res) {
 
 function create(req, res) {
     req.body.user = req.user._id;
-    console.log(req.body);
     const recipe = new Recipe(req.body);
     req.body.attributeNames.forEach(function(attributeName) {
         const attribute = new Attribute({attributeName});
@@ -42,7 +41,18 @@ function create(req, res) {
     })
     recipe.save(function(err) {
         if (err) return res.redirect('/recipes/new');
-        console.log(recipe);
+        res.redirect(`/recipes/${recipe._id}`);
+    });
+}
+
+function edit(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe) {
+        res.render(`/recipes/${recipe._id}/edit`);
+    });
+}
+
+function update(req, res) {
+    Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, recipe) {
         res.redirect(`/recipes/${recipe._id}`);
     });
 }

@@ -3,14 +3,15 @@
 <section id="all-recipes">
   <% recipes.forEach(function(r) { %>
     <img src="<%= r.image %>" alt="cookie picture"><br>
-    <div>Recipe Name:</div>
+    <div class="header">Recipe Name:</div>
     <div><%= r.recipeName %></div>
-    <div>Ingredients:</div>
+    <div class="header">Ingredients:</div>
     <div><%= r.ingredients %></div>
     <% if (r.attributes) { %>
-    <div>Attributes:</div>
+    <div class="header">Attributes:</div>
     <div><%= r.attributes %></div>
     <% } %>
+    <br><br>
     <a href="/recipes/<%= r._id %>">See Full Recipe</a>
   <% }); %>
   </section>
