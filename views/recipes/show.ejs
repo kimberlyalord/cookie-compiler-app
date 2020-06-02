@@ -2,16 +2,17 @@
 
 <section id="show-page">
     <img src="<%= recipe.image %>" alt="cookie picture"><br>
+    <% if (recipe.attributes) { %>
+    <div><%= recipe.attributes.attributeName %></div>
+    <% } %>
     <div class="header">Recipe Name:</div>
     <div><%= recipe.recipeName %></div>
     <div class="header">Ingredients:</div>
     <div><%= recipe.ingredients %></div>
     <div class="header">Directions:</div>
     <div><%= recipe.directions %></div>
-        <% if (recipe.attributes) { %>
-        <div class="header">Attributes:</div>
-        <div><%= recipe.attributes.attributeName %></div>
-        <% } %>
+    <br><br>
+    <a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
 </section>
 
 <%- include('../partials/footer') %>
