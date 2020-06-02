@@ -1,22 +1,18 @@
 <%- include('../partials/header') %>
 
-<table id="all-recipes">
-    <thead>
-      <tr>
-        <th>Recipe Name:</th>
-        <th>Ingredients:</th>
-        <th>Directions:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% recipes.forEach(function(r) { %>
-        <tr>
-          <td><%= r.recipeName %></td>
-          <td><%= r.ingredients %></td>
-          <td><a href="/recipes/<%= r._id %>">See Full Recipe</a></td>
-        </tr>
-        <% }); %>
-    </tbody>
-</table>
+<section id="all-recipes">
+  <% recipes.forEach(function(r) { %>
+    <img src="<%= r.image %>" alt="cookie picture"><br>
+    <div>Recipe Name:</div>
+    <div><%= r.recipeName %></div>
+    <div>Ingredients:</div>
+    <div><%= r.ingredients %></div>
+    <% if (r.attributes) { %>
+    <div>Attributes:</div>
+    <div><%= r.attributes %></div>
+    <% } %>
+    <a href="/recipes/<%= r._id %>">See Full Recipe</a>
+  <% }); %>
+  </section>
 
 <%- include('../partials/footer') %>

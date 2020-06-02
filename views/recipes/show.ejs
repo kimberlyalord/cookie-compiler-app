@@ -1,9 +1,17 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Title: </div>
+    <img src="<%= recipe.image %>" alt="cookie picture"><br>
+    <div>Recipe Name:</div>
     <div><%= recipe.recipeName %></div>
-    
+    <div>Ingredients:</div>
+    <div><%= recipe.ingredients %></div>
+    <div>Directions:</div>
+    <div><%= recipe.directions %></div>
+        <% if (recipe.attributes) { %>
+        <div>Attributes:</div>
+        <div><%= recipe.attributes.attributeName %></div>
+        <% } %>
 </section>
 
 <%- include('../partials/footer') %>
