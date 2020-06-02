@@ -48,7 +48,7 @@ function create(req, res) {
 
 function edit(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
-        res.render(`/recipes/${recipe._id}/edit`);
+        res.render(`recipes/edit`, {title: 'Edit Recipe', recipe});
     });
 }
 
@@ -59,7 +59,9 @@ function update(req, res) {
 }
 
 function deleteRecipe(req, res) {
+    console.log(req.params);
     Recipe.findByIdAndRemove(req.params.id, function(err, recipe) {
-        res.render('/recipes')
+    console.log(err);
+        res.redirect('/recipes');
     });
 }
