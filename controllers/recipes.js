@@ -7,7 +7,8 @@ module.exports = {
     new: newRecipe,
     create,
     edit,
-    update
+    update,
+    delete: deleteRecipe
 };
 
 function index(req, res) {
@@ -54,5 +55,11 @@ function edit(req, res) {
 function update(req, res) {
     Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, recipe) {
         res.redirect(`/recipes/${recipe._id}`);
+    });
+}
+
+function deleteRecipe(req, res) {
+    Recipe.findByIdAndRemove(req.params.id, function(err, recipe) {
+        res.render('/recipes')
     });
 }

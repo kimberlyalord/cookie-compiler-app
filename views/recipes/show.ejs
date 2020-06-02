@@ -12,7 +12,10 @@
     <div class="header">Directions:</div>
     <div><%= recipe.directions %></div>
     <br><br>
-    <a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
+    <a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a><br>
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE">
+        <input type="submit" value="Delete Recipe">
+    </form>
 </section>
 
 <%- include('../partials/footer') %>
