@@ -17,6 +17,6 @@ function isLoggedIn(req, res, next) {
     } else {
         res.redirect('/auth/google');
     }
-  }
+}
 
 module.exports = router;

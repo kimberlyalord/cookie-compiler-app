@@ -48,7 +48,7 @@ function create(req, res) {
 
 function edit(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
-        // if (!recipe.user.equals(req.user._id)) return res.redirect('/recipes');
+        if (!recipe.user.equals(req.user._id)) return res.redirect(`/recipes/${recipe._id}`);
         res.render('recipes/edit', {title: 'Edit Recipe', recipe});
     });
 }
@@ -60,7 +60,10 @@ function update(req, res) {
 }
 
 function deleteRecipe(req, res) {
-    Recipe.findByIdAndRemove(req.params.id, function(err, recipe) {
-        res.redirect('/recipes');
+    Recipe.findById(req.params.id, function(err, recipe) {
+        if (!recipe.user.equals(req.user._id)) return res.redirect(`/recipes/${recipe._id}`);
+        Recipe.findByIdAndRemove(req.params.id, function(err, recipe) {
+            res.redirect('/recipes');
+        });
     });
 }
