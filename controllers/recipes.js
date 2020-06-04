@@ -12,7 +12,9 @@ module.exports = {
 };
 
 function index(req, res) {
-    Recipe.find({}, function(err, recipes) {
+    Recipe.find({})
+        .populate('attributes')
+        .exec(function(err, recipes) {
         res.render('recipes/index', { title: 'All Cookies', recipes });
     });
 }
@@ -36,10 +38,12 @@ function create(req, res) {
     req.body.user = req.user._id;
     const recipe = new Recipe(req.body);
     req.body.attributeNames.forEach(function(attributeName) {
-        const attribute = new Attribute({attributeName});
-        attribute.save();
-        recipe.attributes.push(attribute);
-    })
+        if (attributeName !== 'null') {
+            const attribute = new Attribute({attributeName});
+            attribute.save();
+            recipe.attributes.push(attribute);
+        }
+    });
     recipe.save(function(err) {
         if (err) return res.redirect('/recipes/new');
         res.redirect(`/recipes/${recipe._id}`);

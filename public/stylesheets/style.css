@@ -4,12 +4,23 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #CCFFD2;
   display: grid;
-  grid-template-rows: 150px 100px 1fr 1fr;
+  grid-template-rows: 150px 100px 1fr 1fr 1fr;
   grid-template-columns: 1fr;
   grid-template-areas:
   "main nav"
   "secondary nav"
-  "content";
+  "content"
+  ". footer .";
+}
+
+#about {
+  height: 30px;
+  width: 300px;
+  margin: 20px auto;
+  font-weight: bold;
+  font-size: 24px;
+  border: black solid 2px;
+  border-radius: 5px;
 }
 
 a {

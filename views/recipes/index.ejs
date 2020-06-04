@@ -5,14 +5,16 @@
   <% if (r.image) { %>
   <img src="<%= r.image %>" alt="cookie picture"><br>
   <% } %>
+  <% if (r.attributes.length) { %>
+  <div class="header">Attributes:</div>
+  <% r.attributes.forEach(function(a) { %>
+    <div><%= a.attributeName %></div>
+  <% }); %>
+  <% } %>
   <div class="header">Recipe Name:</div>
   <div><%= r.recipeName %></div>
   <div class="header">Ingredients:</div>
   <div><%= r.ingredients %></div>
-  <% if (r.attributes) { %>
-  <div class="header">Attributes:</div>
-  <div><%= r.attributes.attributeName %></div>
-  <% } %>
   <br><br>
   <a href="/recipes/<%= r._id %>">See Full Recipe</a>
   <% }); %>
