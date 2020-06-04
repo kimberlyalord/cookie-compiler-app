@@ -2,18 +2,20 @@
 
 <section id="all-recipes">
   <% recipes.forEach(function(r) { %>
-    <img src="<%= r.image %>" alt="cookie picture"><br>
-    <div class="header">Recipe Name:</div>
-    <div><%= r.recipeName %></div>
-    <div class="header">Ingredients:</div>
-    <div><%= r.ingredients %></div>
-    <% if (r.attributes) { %>
-    <div class="header">Attributes:</div>
-    <div><%= r.attributes %></div>
-    <% } %>
-    <br><br>
-    <a href="/recipes/<%= r._id %>">See Full Recipe</a>
+  <% if (r.image) { %>
+  <img src="<%= r.image %>" alt="cookie picture"><br>
+  <% } %>
+  <div class="header">Recipe Name:</div>
+  <div><%= r.recipeName %></div>
+  <div class="header">Ingredients:</div>
+  <div><%= r.ingredients %></div>
+  <% if (r.attributes) { %>
+  <div class="header">Attributes:</div>
+  <div><%= r.attributes.attributeName %></div>
+  <% } %>
+  <br><br>
+  <a href="/recipes/<%= r._id %>">See Full Recipe</a>
   <% }); %>
-  </section>
+</section>
 
 <%- include('../partials/footer') %>

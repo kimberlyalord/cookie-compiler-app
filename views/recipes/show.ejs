@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
+    <% if (recipe.image) { %>
     <img src="<%= recipe.image %>" alt="cookie picture"><br>
+    <% } %>
     <% if (recipe.attributes) { %>
     <div><%= recipe.attributes.attributeName %></div>
     <% } %>
@@ -20,9 +22,9 @@
     <% } %>
     <div class="header">Reviews:</div>
     <% if (recipe.reviews.length) { %>
-        <table>
-            <thead>
-              <tr>
+    <table>
+        <thead>
+            <tr>
                 <th>Date</th>
                 <th>Review</th>
                 <th>Rating</th>
@@ -30,35 +32,43 @@
         </thead>
         <tbody>
             <% let total = 0 %>
-            <% recipe.reviews.forEach(function(r) { %>
-                <% total += r.rating %>
-                <tr>
-                    <td><%= r.createdAt.toLocaleDateString() %></td>
-                    <td><%= r.content %></td>
-                    <td><%= r.rating %></td>
-                </tr>
-                <tr>
-                    <td><strong>Average Rating: <%= (total / recipe.reviews.length).toFixed(2) %></strong></td>
-                </tr>
-               <% }); %>
-            </tbody>
-          </table>
+            <% recipe.reviews.forEach(function(review) { %>
+            <% total += review.rating %>
+            <tr>
+                <td><%= review.createdAt.toLocaleDateString() %></td>
+                <td><%= review.content %></td>
+                <td><%= review.rating %></td>
+                <% if (recipe.user.equals(user._id)) { %>
+                <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete Review">
+                </form><br>
+                <% } %>
+                <td><%= console.log('Recipe:', recipe); %></td>
+                <td><%= console.log('Review:', review); %></td>
+                <td><%= console.log('Attribute:', recipe.attribute); %></td>
+            </tr>
+            <tr>
+            </tr>
+            <% }); %>
+            <td><strong>Average Rating: <%= (total / recipe.reviews.length).toFixed(2) %></strong></td>
+        </tbody>
+    </table>
     <% } else { %>
-        <div>No Reviews Yet</div>
+    <div>No Reviews Yet</div>
     <% } %><br>
     <form class="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
         <label>Review:</label>
         <textarea name="content"></textarea>
         <label>Rating:</label>
         <select name="rating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
         </select>
         <input type="submit" value="Add Review">
-      </form>
+    </form>
 </section>
 
 <%- include('../partials/footer') %>
