@@ -45,8 +45,8 @@
           </table>
     <% } else { %>
         <div>No Reviews Yet</div>
-    <% } %>
-    <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
+    <% } %><br>
+    <form class="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
         <label>Review:</label>
         <textarea name="content"></textarea>
         <label>Rating:</label>
