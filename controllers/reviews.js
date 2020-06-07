@@ -16,9 +16,13 @@ function create(req, res) {
 }
 
 function deleteReview(req, res) {
-    Review.findById(req.params.id, function(err, review) {
-        if(!review.user.equals(req.user._id)) return res.redirect(`/recipes/${recipe._id}`);
-        Review.findByIdAndRemove(req.params.id, function(err, review) {
+    req.body.user = req.user;
+    Recipe.findByIdAndRemove(req.params.id, function(err, recipe, review) {
+        console.log(req.params.id);
+        let idx = recipe.reviews.indexOf(review);
+        console.log(idx);
+        recipe.reviews.splice(idx, 1);
+        recipe.save(function(err) {
             res.redirect(`/recipes/${recipe._id}`);
         });
     });

@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
     <title><%= title %></title>
 </head>
 
 <body>
-    <nav class="main-nav">
+    <div class="main-title">
         <h1>Cookie Compiler</h1>
+    </div>
+    <nav>
         <% if (user) { %>
-        <a href="/logout">Log Out</a>
+        <a class="oauth" href="/logout">Log Out</a>
         <% } else { %>
-        <a href="/auth/google">Login with Google</a>
+        <a class="oauth" href="/auth/google">Login with Google</a>
         <% } %>
-    </nav>
-    <nav class="secondary-nav">
-        <a href="/recipes/">See All Cookies</a>
+        <a href="/recipes/">See All Cookies</a><br>
         <a href="/recipes/new">Add A New Cookie Recipe</a>
         <a href="/recipes/reviews">See Your Cookie Reviews</a>
     </nav>
