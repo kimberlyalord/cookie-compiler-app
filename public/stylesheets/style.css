@@ -34,7 +34,7 @@ a:hover, .button:hover {
 nav {
   background-color: #54A372;
   border: black solid 2px;
-  margin 0 auto;
+  margin: 0 auto;
   display: flex;
   padding: 10px 10px;
 }
