@@ -79,7 +79,12 @@ nav {
   border: black solid 2px;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
   padding: 10px 10px;
+}
+
+nav > a {
+  margin: 0 10px;
 }
 
 h1 {
@@ -91,7 +96,7 @@ h1 {
   border: black solid 2px;
   margin: 0 auto;
   padding: 15px 15px 15px 20px;
-  text-align: left;
+  text-align: center;
 }
 
 #all-recipes {
@@ -133,7 +138,8 @@ img {
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 20rem));
   font-size: 16px;
-  padding: 5px 20px;
+  padding: 40px 20px;
+  margin: 0 auto;
   width: fit-content;
 }
 
@@ -160,6 +166,10 @@ img {
 #reviews > th, td {
   border-spacing: 0px 0px;
   border-bottom: 1px solid #000000;
+}
+
+td {
+  padding: 0px 15px;
 }
 
 #new-review-form {
