@@ -4,9 +4,9 @@ Cookie Compiler is an app that allows users to add and view cookie recipes. User
 
 ## Screenshots
 
-![Home Page](https://imgurlink)<br>
-![Recipe Detail Page](https://imgurlink)<br>
-![Add Recipe Page](https://imgurlink)
+![Home Page](https://i.imgur.com/J6i1d5y.png)<br>
+![Recipe Detail Page](https://i.imgur.com/2ggqAYp.png)<br>
+![Add Recipe Page](https://i.imgur.com/6K6LgrS.png)
 
 ## Technologies Used
 
