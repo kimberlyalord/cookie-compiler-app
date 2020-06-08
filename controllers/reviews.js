@@ -17,10 +17,8 @@ function create(req, res) {
 
 function deleteReview(req, res) {
     req.body.user = req.user;
-    Recipe.findByIdAndRemove(req.params.id, function(err, recipe, review) {
-        console.log(req.params.id);
+    Recipe.findById(req.params.id, function(err, recipe, review) {
         let idx = recipe.reviews.indexOf(review);
-        console.log(idx);
         recipe.reviews.splice(idx, 1);
         recipe.save(function(err) {
             res.redirect(`/recipes/${recipe._id}`);
